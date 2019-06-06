@@ -1,0 +1,68 @@
+from functools import reduce
+
+#EJERCICIO #1 ------------------------------------------
+lista = [(1,2,3),(1,5,4),(5,6,5)]
+ejercicio1 = map(lambda x:[x[0],x[-1]],lista)
+print("Ejercicio 1")
+print(ejercicio1)
+
+#EJERCICIO #2 ------------------------------------------
+
+lista1 = [22222,12,26,16,24,13]
+
+def superPar(x):
+    buscar = True
+    for y in range(0, len(x)-1):
+        if int(x[y])%2 == 0:
+            buscar = True
+        else:
+             buscar = False
+
+    return buscar
+
+ejercicio2 = list(filter(lambda x : superPar(str(x)),lista1))
+print("Ejercicio 2")
+print(ejercicio2)
+
+#EJERCICIO 3 -------------------------------------------
+ejercicio3 = map(lambda x: max(x), lista)
+print("Ejercicio 3")
+print (ejercicio3)
+
+
+#EJERCICIO 4 -------------------------------------------
+
+lista2 = [[22,44,26,5],[22,55,69,12],[44,5,6,7]]
+
+
+
+
+def listaSpares(lista):
+    aux = []
+    for f in lista:
+        if superPar(str(f)):
+            aux.append(f)
+    return min(aux)
+
+ejercicio4 = map(lambda x: listaSpares(x), lista2)
+print("Ejercicio 4")
+print(ejercicio4)
+
+
+#EJERCICIO 5 -------------------------------------------
+
+
+
+
+#EJERCICIO 6 -------------------------------------------
+duplas = [[1,2],[3,4],[4,5],[10,4],[15,6],[6,3]]
+
+def numeroT(num):
+    t = 0
+    for i in range(0,num+1):
+        t = t + i
+    return t
+
+ejercicio6 = reduce(lambda x,y: x[0]+y[0],filter(lambda x: x[0]== numeroT(x[1]), duplas))
+print("Ejercicio 6")
+print(ejercicio6)
